@@ -2,7 +2,7 @@
 //  QuadraticSolverApp.swift
 //  QuadraticSolver
 //
-//  Created by Philip Trwoga on 09/02/2023.
+//  Created by Pasindu Akalpa on 09/02/2023.
 //
 
 import SwiftUI
