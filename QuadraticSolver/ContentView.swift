@@ -3,18 +3,16 @@
 //  QuadraticSolver
 //  Starter project code
 //  Created by Pasindu Akalpa on 09/02/2023.
+//  Email `pasindu.20200608@iit.ac.lk`
 //
 
 import SwiftUI
 
 
 struct ContentView: View {
-    @AppStorage("aOld") var aOld: String = ""
-    @AppStorage("bOld") var bOld: String = ""
-    @AppStorage("cOld") var cOld: String = ""
-    @State private var a: String = ""
-    @State private var b: String = ""
-    @State private var c: String = ""
+    @AppStorage(Constants.firstTerm)  private var a: String = ""
+    @AppStorage(Constants.secondTerm)  private var b: String = ""
+    @AppStorage(Constants.thirdTerm)  private var c: String = ""
     @State private var x1: String = "0.0"
     @State private var x2: String = "0.0"
     
@@ -42,16 +40,13 @@ struct ContentView: View {
                     }
                     TextField("1.0", text: $a)
                         .onChange(of: a) { value in
-                            aOld = value
+                            a = value
                         }
                         .frame(height: 60)
                         .multilineTextAlignment(.center)
                         .border(.black, width: 3)
                         .padding(.horizontal)
                         .keyboardType(.decimalPad)
-                        .onAppear {
-                            a = aOld
-                        }
                     HStack {
                         Image(systemName: "b.circle.fill")
                             .resizable()
@@ -62,16 +57,13 @@ struct ContentView: View {
                     }
                     TextField("1.0", text: $b)
                         .onChange(of: b) { value in
-                            bOld = value
+                            b = value
                         }
                         .frame(height: 60)
                         .multilineTextAlignment(.center)
                         .border(.black, width: 3)
                         .padding(.horizontal)
                         .keyboardType(.decimalPad)
-                        .onAppear {
-                            b = bOld
-                        }
                     HStack {
                         Image(systemName: "c.circle.fill")
                             .resizable()
@@ -82,16 +74,13 @@ struct ContentView: View {
                     }
                     TextField("1.0", text: $c)
                         .onChange(of: c) { value in
-                            cOld = value
+                            c = value
                         }
                         .frame(height: 60)
                         .multilineTextAlignment(.center)
                         .border(.black, width: 3)
                         .padding(.horizontal)
                         .keyboardType(.decimalPad)
-                        .onAppear {
-                            c = cOld
-                        }
                 }
                 Button {
                     solveForX()
