@@ -22,7 +22,7 @@ struct ContentView: View {
     //data persistence
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(spacing: 16) {
                 Text("Quadratic Solver")
                     .font(.system(size: 40))
                     .padding(.top)
@@ -30,7 +30,7 @@ struct ContentView: View {
                     .padding(.vertical, 10)
                 Image("quadraticForm")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .scaledToFit()
                 Group {
                     HStack {
                         Image(systemName: "a.circle.fill")
@@ -108,22 +108,13 @@ struct ContentView: View {
     }
     func solveForX()
     {
-        var aValue: Double = 0
-        var bValue: Double = 0
-        var cValue: Double = 0
         var x1Value: Double = 0
         var x2Value: Double = 0
         
-        if let aDouble = Double(a) {
-            aValue = aDouble
-        }
-        
-        if let bDouble = Double(b) {
-            bValue = bDouble
-        }
-        
-        if let cDouble = Double(c) {
-            cValue = cDouble
+        guard let aValue = Double(a),
+              let bValue = Double(b),
+              let cValue = Double(c) else {
+            return
         }
         
         x1Value = (-bValue + sqrt(pow(bValue, 2) - (4 * aValue * cValue))) / (2 * aValue)
